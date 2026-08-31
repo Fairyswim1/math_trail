@@ -25,7 +25,7 @@ python -m http.server 4173 --bind 127.0.0.1
 4. 선택한 circle number의 문제가 다음 문제로 표시됩니다.
 5. 이미 기록된 circle number는 선택지에서 사라집니다.
 6. 잘못 선택했으면 기록지의 번호 또는 `마지막 삭제`를 눌러 되돌립니다. 삭제된 번호는 선택지에 다시 나타납니다.
-7. `전체 문제` 화면에서 12개 문제 카드 또는 원본 PDF 페이지 이미지를 볼 수 있습니다.
+7. `전체 문제` 화면에서 12개 문제 카드를 볼 수 있습니다.
 
 ## 파일 구조
 
@@ -34,5 +34,4 @@ python -m http.server 4173 --bind 127.0.0.1
 - `site/app.js`: Trail 진행 동작
 - `site/assets/problems`: 문제 카드 이미지 12개
 - `site/assets/answers`: previous answer 선택지 이미지 12개
-- `site/assets/pages`: 원본 문제지 페이지 이미지 6개
 - `tools/extract_assets.py`: PDF 렌더링 이미지에서 웹앱용 자산을 다시 추출하는 스크립트

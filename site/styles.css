@@ -68,8 +68,7 @@ main {
   padding: 14px;
 }
 
-.mode-tabs,
-.segmented {
+.mode-tabs {
   display: inline-flex;
   padding: 4px;
   background: #edf1f7;
@@ -78,7 +77,6 @@ main {
 }
 
 .tab,
-.segment,
 .secondary {
   min-height: 40px;
   border: 1px solid transparent;
@@ -87,15 +85,13 @@ main {
   font-weight: 800;
 }
 
-.tab,
-.segment {
+.tab {
   padding: 0 18px;
   background: transparent;
   color: #475569;
 }
 
-.tab.is-active,
-.segment.is-active {
+.tab.is-active {
   background: #fff;
   color: var(--ink);
   box-shadow: 0 1px 4px rgba(15, 23, 42, 0.12);
@@ -421,8 +417,7 @@ main {
   box-shadow: var(--shadow);
 }
 
-.all-card img,
-.page-grid img {
+.all-card img {
   display: block;
   width: 100%;
   height: auto;
@@ -441,12 +436,6 @@ main {
   font-size: 12px;
 }
 
-.page-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 18px;
-}
-
 @media (max-width: 1180px) {
   .work-layout {
     grid-template-columns: 1fr;
@@ -458,8 +447,7 @@ main {
   }
 
   .answer-grid,
-  .all-grid,
-  .page-grid {
+  .all-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -480,13 +468,11 @@ main {
     padding: 12px;
   }
 
-  .mode-tabs,
-  .segmented {
+  .mode-tabs {
     width: 100%;
   }
 
-  .tab,
-  .segment {
+  .tab {
     flex: 1;
     padding: 0 8px;
   }
@@ -510,8 +496,7 @@ main {
   }
 
   .answer-grid,
-  .all-grid,
-  .page-grid {
+  .all-grid {
     grid-template-columns: 1fr;
   }
 

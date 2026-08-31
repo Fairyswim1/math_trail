@@ -34,8 +34,7 @@ const { chromium } = require("playwright");
 
   await page.click('button[data-view="all"]');
   const allCards = await page.locator(".all-card").count();
-  await page.click('button[data-all-mode="pages"]');
-  const allPages = await page.locator("#all-pages img").count();
+  const allModeSwitchCount = await page.locator("[data-all-mode]").count();
 
   await page.screenshot({ path: "C:/Users/BTY/Desktop/maths_trail/tmp/site-check.png", fullPage: true });
   await browser.close();
@@ -50,7 +49,7 @@ const { chromium } = require("playwright");
     secondSlotText,
     choicesAfterUndo,
     allCards,
-    allPages,
+    allModeSwitchCount,
     errors,
   }, null, 2));
 })();

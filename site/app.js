@@ -10,7 +10,6 @@ const state = {
 
 const problemSrc = (n) => `./assets/problems/problem-${String(n).padStart(2, "0")}.jpg`;
 const answerSrc = (n) => `./assets/answers/answer-${String(n).padStart(2, "0")}.png`;
-const pageSrc = (n) => `./assets/pages/page-${String(n).padStart(2, "0")}.jpg`;
 const $ = (selector) => document.querySelector(selector);
 
 const slotPositions = [
@@ -217,31 +216,9 @@ function renderAllCards() {
   }
 }
 
-function renderPages() {
-  const grid = $("#all-pages");
-  grid.innerHTML = "";
-  for (let n = 1; n <= 6; n += 1) {
-    const img = document.createElement("img");
-    img.src = pageSrc(n);
-    img.alt = `원본 문제지 ${n}쪽 이미지`;
-    grid.append(img);
-  }
-}
-
 function bindEvents() {
   document.querySelectorAll(".tab").forEach((tab) => {
     tab.addEventListener("click", () => setView(tab.dataset.view));
-  });
-
-  document.querySelectorAll(".segment").forEach((button) => {
-    button.addEventListener("click", () => {
-      const mode = button.dataset.allMode;
-      document.querySelectorAll(".segment").forEach((segment) => {
-        segment.classList.toggle("is-active", segment.dataset.allMode === mode);
-      });
-      $("#all-cards").hidden = mode !== "cards";
-      $("#all-pages").hidden = mode !== "pages";
-    });
   });
 
   $("#restart-run").addEventListener("click", () => {
@@ -267,7 +244,6 @@ function init() {
   bindEvents();
   renderCirclePicker();
   renderTrail();
-  renderPages();
 }
 
 init();
