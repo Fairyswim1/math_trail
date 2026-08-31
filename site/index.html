@@ -21,23 +21,30 @@
 
     <main>
       <section class="view is-active" id="trail-view" aria-labelledby="trail-title">
-        <section class="trail-board" aria-labelledby="trail-title">
-          <div>
-            <p class="eyebrow">기록지</p>
-            <h2 id="trail-title">Circle Number</h2>
-          </div>
-          <div class="trail-diagram" id="trail-diagram" aria-label="선택한 circle number 기록"></div>
-        </section>
-
         <div class="work-layout">
-          <aside class="panel start-panel">
-            <h2>시작 번호</h2>
-            <div class="circle-picker" id="start-picker"></div>
-            <div class="status-box" id="status-box"></div>
-            <div class="action-row">
-              <button class="secondary" id="restart-run" type="button">처음부터</button>
-              <button class="secondary" id="undo-run" type="button">마지막 삭제</button>
-            </div>
+          <aside class="left-rail">
+            <section class="trail-board" aria-labelledby="trail-title">
+              <div>
+                <p class="eyebrow">기록지</p>
+                <h2 id="trail-title">Circle Number</h2>
+              </div>
+              <div class="trail-diagram" id="trail-diagram" aria-label="선택한 circle number 기록"></div>
+            </section>
+
+            <section class="panel start-panel">
+              <h2>시작 번호</h2>
+              <div class="circle-picker" id="start-picker"></div>
+              <div class="status-box" id="status-box"></div>
+              <div class="action-row">
+                <button class="secondary" id="restart-run" type="button">처음부터</button>
+                <button class="secondary" id="undo-run" type="button">마지막 삭제</button>
+              </div>
+            </section>
+
+            <section class="panel answer-panel">
+              <h2>Previous Answer 선택</h2>
+              <div class="answer-grid" id="answer-grid"></div>
+            </section>
           </aside>
 
           <section class="problem-stage" aria-live="polite">
@@ -50,11 +57,6 @@
             </div>
             <img class="problem-image" id="current-problem" alt="현재 문제 이미지" />
           </section>
-
-          <aside class="panel answer-panel">
-            <h2>Previous Answer 선택</h2>
-            <div class="answer-grid" id="answer-grid"></div>
-          </aside>
         </div>
       </section>
 
