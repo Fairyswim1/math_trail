@@ -40,7 +40,7 @@ const { chromium } = require("playwright");
   await browser.close();
 
   console.log(JSON.stringify({
-    hasTitle: bodyText.includes("종합 (2-3)"),
+    hasTrailView: bodyText.includes("Circle Number"),
     initialChoices,
     currentImageLoaded,
     teacherTabCount,

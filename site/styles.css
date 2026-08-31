@@ -33,9 +33,8 @@ button {
   z-index: 20;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  padding: 16px 24px;
+  justify-content: flex-end;
+  padding: 6px 14px;
   background: rgba(255, 255, 255, 0.94);
   border-bottom: 1px solid var(--line);
   backdrop-filter: blur(14px);
@@ -50,14 +49,9 @@ button {
   text-transform: uppercase;
 }
 
-h1,
 h2 {
   margin: 0;
   letter-spacing: 0;
-}
-
-h1 {
-  font-size: 26px;
 }
 
 h2 {
@@ -65,7 +59,7 @@ h2 {
 }
 
 main {
-  padding: 14px;
+  padding: 8px 14px 14px;
 }
 
 .mode-tabs {
@@ -459,9 +453,8 @@ main {
 @media (max-width: 720px) {
   .topbar {
     position: static;
-    flex-direction: column;
     align-items: stretch;
-    padding: 16px;
+    padding: 8px 12px;
   }
 
   main {
