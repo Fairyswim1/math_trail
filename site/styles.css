@@ -152,7 +152,7 @@ main {
 }
 
 .trail-center strong {
-  font-size: clamp(15px, 1.7vw, 24px);
+  font-size: clamp(16px, 1.7vw, 24px);
   line-height: 1;
 }
 
@@ -174,9 +174,9 @@ main {
   border-radius: 50%;
   color: #111;
   cursor: pointer;
-  font-size: clamp(18px, 2.4vw, 32px);
+  font-size: clamp(16px, 2vw, 26px);
   font-weight: 900;
-  line-height: 1;
+  line-height: 0.9;
 }
 
 .trail-slot:disabled {
@@ -250,7 +250,7 @@ main {
 
 .work-layout {
   display: grid;
-  grid-template-columns: minmax(460px, 520px) minmax(0, 1fr);
+  grid-template-columns: minmax(560px, 650px) minmax(0, 1fr);
   align-items: start;
   gap: 12px;
 }
@@ -266,7 +266,6 @@ main {
 .panel,
 .problem-stage {
   padding: 12px;
-  overflow: hidden;
 }
 
 .stage-header,
@@ -308,12 +307,11 @@ main {
 
 .problem-image {
   display: block;
-  width: 100%;
-  max-width: min(100%, 920px);
+  width: auto;
+  max-width: 100%;
   max-height: calc(100vh - 150px);
-  margin: 0;
+  margin: 0 auto;
   object-fit: contain;
-  object-position: left top;
   background: #fff;
   border: 1px solid #111827;
 }
@@ -327,8 +325,8 @@ main {
 
 .answer-choice {
   position: relative;
-  min-height: 70px;
-  padding: 20px 6px 6px;
+  min-height: 104px;
+  padding: 22px 8px 8px;
   background: #fff;
   border: 2px solid var(--line);
   border-radius: 8px;
@@ -360,7 +358,7 @@ main {
 .answer-choice img {
   display: block;
   width: 100%;
-  height: 44px;
+  height: 76px;
   object-fit: contain;
 }
 
