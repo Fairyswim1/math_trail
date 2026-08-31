@@ -126,7 +126,7 @@ main {
   position: relative;
   width: 100%;
   max-width: 100%;
-  aspect-ratio: 3.05 / 1;
+  aspect-ratio: 2.55 / 1;
   margin: 10px auto 0;
   background: #fff;
   border: 2px solid #111;
@@ -152,12 +152,12 @@ main {
 }
 
 .trail-center strong {
-  font-size: clamp(16px, 1.7vw, 24px);
+  font-size: clamp(20px, 2vw, 30px);
   line-height: 1;
 }
 
 .trail-center span {
-  font-size: clamp(13px, 1.25vw, 18px);
+  font-size: clamp(15px, 1.5vw, 22px);
   line-height: 1;
 }
 
@@ -174,7 +174,7 @@ main {
   border-radius: 50%;
   color: #111;
   cursor: pointer;
-  font-size: clamp(16px, 2vw, 26px);
+  font-size: clamp(20px, 2.3vw, 32px);
   font-weight: 900;
   line-height: 0.9;
 }
@@ -279,12 +279,14 @@ main {
 
 .circle-picker {
   display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
-  gap: 6px;
+  grid-template-columns: repeat(6, 58px);
+  justify-content: start;
+  gap: 8px;
   margin-top: 10px;
 }
 
 .circle-button {
+  width: 58px;
   aspect-ratio: 1;
   border: 1px solid var(--line);
   border-radius: 50%;
@@ -292,6 +294,7 @@ main {
   color: var(--ink);
   cursor: pointer;
   font-weight: 900;
+  font-size: 17px;
 }
 
 .circle-button.is-active {
