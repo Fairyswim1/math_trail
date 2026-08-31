@@ -250,9 +250,9 @@ main {
 
 .work-layout {
   display: grid;
-  grid-template-columns: minmax(330px, 410px) minmax(560px, 1fr);
+  grid-template-columns: minmax(460px, 520px) minmax(0, 1fr);
   align-items: start;
-  gap: 14px;
+  gap: 12px;
 }
 
 .left-rail {
@@ -266,6 +266,7 @@ main {
 .panel,
 .problem-stage {
   padding: 12px;
+  overflow: hidden;
 }
 
 .stage-header,
@@ -308,10 +309,11 @@ main {
 .problem-image {
   display: block;
   width: 100%;
-  max-width: min(100%, 980px);
-  max-height: calc(100vh - 160px);
-  margin: 0 auto;
+  max-width: min(100%, 920px);
+  max-height: calc(100vh - 150px);
+  margin: 0;
   object-fit: contain;
+  object-position: left top;
   background: #fff;
   border: 1px solid #111827;
 }
