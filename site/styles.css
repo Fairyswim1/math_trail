@@ -49,9 +49,14 @@ button {
   text-transform: uppercase;
 }
 
+h1,
 h2 {
   margin: 0;
   letter-spacing: 0;
+}
+
+h1 {
+  font-size: 26px;
 }
 
 h2 {
@@ -71,7 +76,8 @@ main {
 }
 
 .tab,
-.secondary {
+.secondary,
+.primary {
   min-height: 40px;
   border: 1px solid transparent;
   border-radius: 7px;
@@ -393,6 +399,70 @@ main {
   color: #334155;
 }
 
+.link-button {
+  text-decoration: none;
+}
+
+.primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 16px;
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.result-box {
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: 900;
+  line-height: 1.45;
+}
+
+.result-box.correct {
+  background: #ecfdf5;
+  border: 1px solid #5eead4;
+  color: #0f766e;
+}
+
+.result-box.incorrect {
+  background: #fff7ed;
+  border: 1px solid #fdba74;
+  color: #9a3412;
+}
+
+.result-box strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.confetti-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.confetti-piece {
+  position: absolute;
+  top: -24px;
+  left: var(--x);
+  width: 10px;
+  height: 16px;
+  border-radius: 2px;
+  transform: rotate(var(--spin));
+  animation: confetti-fall 2.4s ease-in var(--delay) forwards;
+}
+
+@keyframes confetti-fall {
+  to {
+    transform: translateY(110vh) rotate(calc(var(--spin) + 720deg));
+    opacity: 0.9;
+  }
+}
+
 .all-header {
   margin-bottom: 18px;
 }
@@ -450,6 +520,12 @@ main {
   }
 }
 
+@media (max-width: 900px) {
+  .summary-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 @media (max-width: 720px) {
   .topbar {
     position: static;
@@ -498,4 +574,5 @@ main {
     align-items: stretch;
     flex-direction: column;
   }
+
 }

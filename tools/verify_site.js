@@ -36,6 +36,15 @@ const { chromium } = require("playwright");
   const allCards = await page.locator(".all-card").count();
   const allModeSwitchCount = await page.locator("[data-all-mode]").count();
 
+  await page.click('button[data-view="trail"]');
+  await page.evaluate(() => {
+    localStorage.setItem("maths-trail-2026-2-3-run", JSON.stringify([1, 2, 8, 5, 11, 10, 6, 3, 7, 9, 4, 12]));
+  });
+  await page.reload({ waitUntil: "networkidle" });
+  await page.click("#submit-run");
+  const resultText = await page.locator("#result-box").innerText();
+  const confettiCount = await page.locator(".confetti-piece").count();
+
   await page.screenshot({ path: "C:/Users/BTY/Desktop/maths_trail/tmp/site-check.png", fullPage: true });
   await browser.close();
 
@@ -50,6 +59,8 @@ const { chromium } = require("playwright");
     choicesAfterUndo,
     allCards,
     allModeSwitchCount,
+    resultText,
+    confettiCount,
     errors,
   }, null, 2));
 })();
