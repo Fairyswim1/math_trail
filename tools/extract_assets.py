@@ -8,8 +8,8 @@ ASSET_DIR = ROOT / "site" / "assets"
 
 
 def crop_scaled(image, box_160):
-    scale_x = image.width / 1869
-    scale_y = image.height / 1323
+    scale_x = image.width / 1820
+    scale_y = image.height / 2573
     left, top, right, bottom = box_160
     box = (
         round(left * scale_x),
@@ -23,33 +23,24 @@ def crop_scaled(image, box_160):
 def main():
     problems_dir = ASSET_DIR / "problems"
     answers_dir = ASSET_DIR / "answers"
-    pages_dir = ASSET_DIR / "pages"
-    for directory in (problems_dir, answers_dir, pages_dir):
+    for directory in (problems_dir, answers_dir):
         directory.mkdir(parents=True, exist_ok=True)
 
-    # Coordinates are based on the rendered 160 DPI page size, then scaled to
-    # whatever resolution was rendered. The PDF has two cards per page.
-    card_boxes = [
-        (59, 59, 880, 1270),
-        (994, 59, 1813, 1270),
-    ]
-    answer_boxes = [
-        (463, 88, 852, 309),
-        (1399, 88, 1787, 309),
-    ]
+    # Coordinates are based on a 220 DPI A4 render (1820 x 2573). The current
+    # PDF has one full card per page, so the same crop applies to each page.
+    card_box = (115, 118, 1668, 2408)
+    answer_box = (848, 155, 1620, 575)
 
     problem_number = 1
-    for page_number in range(1, 7):
-        page_path = RENDER_DIR / f"problem-{page_number}.png"
+    for page_number in range(1, 13):
+        page_path = RENDER_DIR / f"problem-{page_number:02d}.png"
         page = Image.open(page_path).convert("RGB")
-        page.save(pages_dir / f"page-{page_number:02d}.jpg", quality=92, optimize=True)
 
-        for side in range(2):
-            card = crop_scaled(page, card_boxes[side])
-            answer = crop_scaled(page, answer_boxes[side])
-            card.save(problems_dir / f"problem-{problem_number:02d}.jpg", quality=94, optimize=True)
-            answer.save(answers_dir / f"answer-{problem_number:02d}.png", optimize=True)
-            problem_number += 1
+        card = crop_scaled(page, card_box)
+        answer = crop_scaled(page, answer_box)
+        card.save(problems_dir / f"problem-{problem_number:02d}.jpg", quality=94, optimize=True)
+        answer.save(answers_dir / f"answer-{problem_number:02d}.png", optimize=True)
+        problem_number += 1
 
     print(f"Extracted {problem_number - 1} problem cards and answer choices.")
 
