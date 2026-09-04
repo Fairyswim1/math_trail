@@ -1,6 +1,7 @@
 const TOTAL = 12;
 const STORAGE_KEY = "maths-trail-2026-2-3-run";
 const CORRECT_CYCLE = [1, 2, 8, 5, 11, 10, 6, 3, 7, 9, 4, 12];
+const PADLET_URL = "https://padlet.com/lhj3534/maths-trail-s0238wtr1rkp9gj7q9xb";
 
 const state = {
   view: "trail",
@@ -305,6 +306,9 @@ function submitRun() {
   if (state.correct) {
     playCelebrationSound();
     launchConfetti();
+    if (confirm("정답입니다! 풀이를 Padlet에 올리러 갈까요?")) {
+      window.open(PADLET_URL, "_blank", "noopener,noreferrer");
+    }
   }
 }
 

@@ -11,7 +11,11 @@ const { chromium } = require("playwright");
     if (msg.type() === "error") errors.push(msg.text());
   });
   page.on("pageerror", (err) => errors.push(err.message));
-  page.on("dialog", async (dialog) => dialog.accept());
+  const dialogs = [];
+  page.on("dialog", async (dialog) => {
+    dialogs.push(dialog.message());
+    await dialog.accept();
+  });
 
   await page.goto("http://127.0.0.1:4173/", { waitUntil: "networkidle" });
   await page.evaluate(() => localStorage.clear());
@@ -41,9 +45,14 @@ const { chromium } = require("playwright");
     localStorage.setItem("maths-trail-2026-2-3-run", JSON.stringify([1, 2, 8, 5, 11, 10, 6, 3, 7, 9, 4, 12]));
   });
   await page.reload({ waitUntil: "networkidle" });
-  await page.click("#submit-run");
+  const [padletPage] = await Promise.all([
+    page.waitForEvent("popup"),
+    page.click("#submit-run"),
+  ]);
   const resultText = await page.locator("#result-box").innerText();
   const confettiCount = await page.locator(".confetti-piece").count();
+  const padletUrl = padletPage.url();
+  await padletPage.close();
 
   await page.screenshot({ path: "C:/Users/BTY/Desktop/maths_trail/tmp/site-check.png", fullPage: true });
   await browser.close();
@@ -61,6 +70,8 @@ const { chromium } = require("playwright");
     allModeSwitchCount,
     resultText,
     confettiCount,
+    padletUrl,
+    dialogs,
     errors,
   }, null, 2));
 })();
